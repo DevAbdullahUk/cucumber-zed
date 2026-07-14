@@ -1,5 +1,31 @@
 [
   {
+    "type": "background",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name_line",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "step",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "description",
     "named": true,
     "fields": {},
@@ -34,11 +60,49 @@
       "required": false,
       "types": [
         {
+          "type": "background",
+          "named": true
+        },
+        {
           "type": "description",
           "named": true
         },
         {
+          "type": "rule_header",
+          "named": true
+        },
+        {
           "type": "scenario",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rule_header",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name_line",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "tag_list",
           "named": true
         }
       ]
@@ -153,6 +217,10 @@
     "named": false
   },
   {
+    "type": "Background",
+    "named": false
+  },
+  {
     "type": "But",
     "named": false
   },
@@ -162,6 +230,10 @@
   },
   {
     "type": "Given",
+    "named": false
+  },
+  {
+    "type": "Rule",
     "named": false
   },
   {

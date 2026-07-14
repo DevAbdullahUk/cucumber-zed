@@ -68,3 +68,65 @@ Feature: Has comments
       name: (name_line)
       (comment)
       (step keyword: (step_keyword) text: (step_text)))))
+
+================================================================================
+Background block
+================================================================================
+
+Feature: With background
+
+  Background: Common setup
+    Given a logged in user
+
+  Scenario: Uses background
+    When they visit the dashboard
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (background
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text)))
+    (scenario
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text)))))
+
+================================================================================
+Rule block containing scenarios
+================================================================================
+
+Feature: Refunds
+
+  Rule: A refunded item should be returned to stock
+
+    Scenario: Refunded items should be returned to stock
+      Given a customer buys a shoe
+      When they return the shoe
+      Then the shoe should be returned to stock
+
+  Rule: Out of stock items should not be sold
+
+    Scenario: Out of stock item is not sellable
+      Given an item is out of stock
+      Then it should not be sellable
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (rule_header
+      name: (name_line))
+    (scenario
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text)))
+    (rule_header
+      name: (name_line))
+    (scenario
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text)))))

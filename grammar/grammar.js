@@ -17,7 +17,25 @@ module.exports = grammar({
     feature: $ => seq(
       'Feature', ':', field('name', $.name_line),
       optional($.description),
-      repeat($.scenario)
+      optional($.background),
+      repeat(choice($.rule_header, $.scenario))
+    ),
+
+    // A Rule is a flat header: the scenarios that follow it are its
+    // siblings in `feature`'s repeat, not its children. Nesting scenarios
+    // inside `rule` made "does this tag start a new scenario in the rule,
+    // or end the rule" ambiguous at the same lookahead as the outer
+    // feature-level choice, which produced unstable GLR parses on real
+    // files. Flattening removes the ambiguity outright.
+    rule_header: $ => seq(
+      optional($.tag_list),
+      token(prec(2, 'Rule')), ':', field('name', $.name_line),
+      optional($.description)
+    ),
+
+    background: $ => seq(
+      token(prec(2, 'Background')), ':', optional(field('name', $.name_line)),
+      repeat($.step)
     ),
 
     scenario: $ => seq(
