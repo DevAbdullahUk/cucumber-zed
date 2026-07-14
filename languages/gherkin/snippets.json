@@ -1,0 +1,62 @@
+{
+  "Feature": {
+    "prefix": "feature",
+    "body": [
+      "Feature: ${1:Feature name}",
+      "  ${2:As a role, I want a feature, so that I get a benefit}",
+      "",
+      "  Scenario: ${3:Scenario name}",
+      "    Given ${4:precondition}",
+      "    When ${5:action}",
+      "    Then ${6:outcome}"
+    ],
+    "description": "Feature with an initial scenario"
+  },
+  "Scenario": {
+    "prefix": "scenario",
+    "body": [
+      "Scenario: ${1:Scenario name}",
+      "  Given ${2:precondition}",
+      "  When ${3:action}",
+      "  Then ${4:outcome}"
+    ],
+    "description": "Scenario with Given/When/Then"
+  },
+  "Scenario Outline": {
+    "prefix": "outline",
+    "body": [
+      "Scenario Outline: ${1:Scenario name}",
+      "  Given ${2:precondition} <${3:param}>",
+      "  When ${4:action}",
+      "  Then ${5:outcome}",
+      "",
+      "  Examples:",
+      "    | ${3:param} |",
+      "    | ${6:value} |"
+    ],
+    "description": "Scenario Outline with an Examples table"
+  },
+  "Background": {
+    "prefix": "background",
+    "body": [
+      "Background: ${1:Common setup}",
+      "  Given ${2:precondition}"
+    ],
+    "description": "Background block"
+  },
+  "Given": {
+    "prefix": "given",
+    "body": "Given ${1:precondition}",
+    "description": "Given step"
+  },
+  "When": {
+    "prefix": "when",
+    "body": "When ${1:action}",
+    "description": "When step"
+  },
+  "Then": {
+    "prefix": "then",
+    "body": "Then ${1:outcome}",
+    "description": "Then step"
+  }
+}
