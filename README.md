@@ -25,9 +25,62 @@ non-English Gherkin keyword dialects.
 
 ## Installing
 
-1. Open Zed
-2. Run `zed: install dev extension` from the command palette
-3. Select this repo's directory
+This extension isn't published to Zed's extension marketplace — install it as a dev
+extension:
+
+1. Clone this repo: `git clone https://github.com/DevAbdullahUk/cucumber-zed.git`
+2. Open Zed
+3. Open the command palette (`cmd-shift-p` / `ctrl-shift-p`) and run
+   `zed: install dev extension`
+4. Select the `cucumber-zed` directory you cloned
+5. Open any `.feature` file — Zed should recognize it as Gherkin (check the language
+   indicator in the bottom status bar)
+
+If Zed reports a build/grammar error on install, check that
+`extension.toml`'s `[grammars.gherkin]` `rev` still matches a commit that exists on
+[tree-sitter-gherkin](https://github.com/DevAbdullahUk/tree-sitter-gherkin) — see
+[Keeping the split grammar repo in sync](#keeping-the-split-grammar-repo-in-sync).
+
+## Usage
+
+Open or create a `.feature` file. `Feature`/`Rule`/`Background`/`Scenario`/`Scenario
+Outline`/`Examples`/`Given`/`When`/`Then`/`And`/`But`, `@tags`, `# comments`, doc
+strings, and data tables are all highlighted:
+
+```gherkin
+@smoke
+Feature: Guess the word
+  The word guess game is a turn-based game for two players.
+
+  Background: Common setup
+    Given a logged in user
+
+  Scenario Outline: Eating cucumbers
+    Given there are <start> cucumbers
+    When I eat <eat> cucumbers
+    Then I should have <left> cucumbers
+
+    Examples:
+      | start | eat | left |
+      |    12 |   5 |    7 |
+```
+
+Use the outline view (`cmd-shift-o` / `ctrl-shift-o`, or the breadcrumb bar) to jump
+between Features, Rules, Scenarios, and Backgrounds in a file.
+
+### Snippets
+
+Type a prefix and hit tab to expand:
+
+| Prefix | Expands to |
+| --- | --- |
+| `feature` | `Feature:` header with a description line and a starter Scenario |
+| `scenario` | `Scenario:` with Given/When/Then |
+| `outline` | `Scenario Outline:` with an Examples table (the `<param>` placeholder is linked between the step and the table header) |
+| `background` | `Background:` block |
+| `given` | a single `Given` step |
+| `when` | a single `When` step |
+| `then` | a single `Then` step |
 
 ## Development
 
