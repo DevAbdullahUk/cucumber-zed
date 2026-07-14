@@ -1,5 +1,5 @@
-"Feature" @keyword
-"Rule" @keyword
+"Feature" @keyword.type
+"Rule" @keyword.modifier
 "Background" @keyword
 "Scenario" @keyword
 "Scenario Outline" @keyword
