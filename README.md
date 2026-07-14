@@ -17,6 +17,10 @@ extension; see [Installing](#installing).
 - Syntax highlighting for `Feature`, `Rule`, `Background`, `Scenario`, `Scenario
   Outline`, `Examples`, steps (`Given`/`When`/`Then`/`And`/`But`), `@tags`, `#
   comments`, doc strings (`"""..."""`), and data tables (`| ... |`)
+- Step text parameters highlighted separately: `"quoted strings"` and
+  `<placeholders>` (e.g. in `Scenario Outline` steps)
+- `As a`/`I want`/`So that` user-story lines in a `Feature` description are
+  highlighted as documentation
 - Outline/breadcrumb entries for Feature, Rule, Scenario, and Background
 - Snippets: `feature`, `scenario`, `outline`, `background`, `given`, `when`, `then`
 
@@ -50,10 +54,15 @@ strings, and data tables are all highlighted:
 ```gherkin
 @smoke
 Feature: Guess the word
-  The word guess game is a turn-based game for two players.
+  As a player
+  I want to guess the secret word
+  So that I can win the game
 
   Background: Common setup
     Given a logged in user
+
+  Scenario: Adding a test case
+    Given John Smith adds a test case named "Login Flow" to the test plan named "Regression Plan"
 
   Scenario Outline: Eating cucumbers
     Given there are <start> cucumbers
@@ -64,6 +73,10 @@ Feature: Guess the word
       | start | eat | left |
       |    12 |   5 |    7 |
 ```
+
+`"Login Flow"`/`"Regression Plan"` and `<start>`/`<eat>`/`<left>` are highlighted as
+parameters (distinct colors — quoted strings vs. placeholders); the `As a`/`I want`/`So
+that` lines are highlighted as documentation.
 
 Use the outline view (`cmd-shift-o` / `ctrl-shift-o`, or the breadcrumb bar) to jump
 between Features, Rules, Scenarios, and Backgrounds in a file.

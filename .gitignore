@@ -17,6 +17,10 @@ grammar/target/
 extension.wasm
 target/
 
+# tree-sitter CLI's own grammar cache (auto-cloned when `tree-sitter query`/
+# `parse` resolves a grammar it doesn't have locally configured)
+/grammars/
+
 # OS
 .DS_Store
 

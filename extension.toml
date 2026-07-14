@@ -11,4 +11,4 @@ languages = ["languages/gherkin"]
 
 [grammars.gherkin]
 repository = "https://github.com/DevAbdullahUk/tree-sitter-gherkin"
-rev = "eb21fabad913c722f0964f45a52955f8fda9c12c"
+rev = "e5066ddc7c530615437bf1474dc98942274c8cb4"
