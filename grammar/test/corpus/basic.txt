@@ -214,3 +214,30 @@ Feature: Blog posts
         keyword: (step_keyword)
         text: (step_text)
         (doc_string)))))
+
+================================================================================
+All step keyword alternatives
+================================================================================
+
+Feature: Placing an order
+  Scenario: Checkout with multiple conditions
+    Given a cart with items
+    And a valid payment method
+    When the customer checks out
+    But the address is missing
+    Then the order should be rejected
+    * a retry prompt should be shown
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (scenario
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text)))))

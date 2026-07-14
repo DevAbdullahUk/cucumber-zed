@@ -8,8 +8,11 @@ Feature: Guess the word
   @fast
   Scenario: Maker starts a game
     Given the Maker has started a game
+    And the board is empty
     When the Maker starts a game
+    But no Breaker has joined yet
     Then the Maker waits for a Breaker to join
+    * the game should be in progress
 
   Scenario Outline: Eating cucumbers
     Given there are <start> cucumbers
