@@ -1,0 +1,200 @@
+[
+  {
+    "type": "description",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "description_line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "feature",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name_line",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "scenario",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scenario",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name_line",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "step",
+          "named": true
+        },
+        {
+          "type": "tag_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "feature",
+          "named": true
+        },
+        {
+          "type": "tag_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step",
+    "named": true,
+    "fields": {
+      "keyword": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "step_keyword",
+            "named": true
+          }
+        ]
+      },
+      "text": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "step_text",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "step_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tag_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "And",
+    "named": false
+  },
+  {
+    "type": "But",
+    "named": false
+  },
+  {
+    "type": "Feature",
+    "named": false
+  },
+  {
+    "type": "Given",
+    "named": false
+  },
+  {
+    "type": "Scenario",
+    "named": false
+  },
+  {
+    "type": "Then",
+    "named": false
+  },
+  {
+    "type": "When",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "description_line",
+    "named": true
+  },
+  {
+    "type": "name_line",
+    "named": true
+  },
+  {
+    "type": "step_text",
+    "named": true
+  },
+  {
+    "type": "tag",
+    "named": true
+  }
+]

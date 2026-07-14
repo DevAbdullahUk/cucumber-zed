@@ -1,0 +1,70 @@
+================================================================================
+Feature with description and a scenario
+================================================================================
+
+Feature: Guess the word
+  The word guess game is a turn-based game for two players.
+
+  Scenario: Maker starts a game
+    Given the Maker has started a game
+    When the Maker starts a game
+    Then the Maker waits for a Breaker to join
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (description
+      (description_line))
+    (scenario
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text)))))
+
+================================================================================
+Tags on feature and scenario
+================================================================================
+
+@wip @smoke
+Feature: Tagged feature
+
+  @fast
+  Scenario: A tagged scenario
+    Given something
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tag_list (tag) (tag))
+  (feature
+    name: (name_line)
+    (scenario
+      (tag_list (tag))
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text)))))
+
+================================================================================
+Comments are ignored as extras
+================================================================================
+
+# top level comment
+Feature: Has comments
+  # a comment inside the feature
+
+  Scenario: One
+    # comment before step
+    Given a thing
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (feature
+    name: (name_line)
+    (comment)
+    (scenario
+      name: (name_line)
+      (comment)
+      (step keyword: (step_keyword) text: (step_text)))))
