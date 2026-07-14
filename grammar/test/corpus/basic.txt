@@ -189,3 +189,28 @@ Feature: Users
           (table_row (table_cell) (table_cell))
           (table_row (table_cell) (table_cell))
           (table_row (table_cell) (table_cell)))))))
+
+================================================================================
+Step with a doc string argument
+================================================================================
+
+Feature: Blog posts
+
+  Scenario: Publishing a post
+    Given a post with body:
+      """
+      This is the body
+      of the post.
+      """
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (scenario
+      name: (name_line)
+      (step
+        keyword: (step_keyword)
+        text: (step_text)
+        (doc_string)))))

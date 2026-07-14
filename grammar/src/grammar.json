@@ -355,8 +355,17 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "data_table"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "data_table"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "doc_string"
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -516,6 +525,30 @@
         "content": {
           "type": "PATTERN",
           "value": "[^|\\n]*"
+        }
+      }
+    },
+    "doc_string": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\"\"\""
+            },
+            {
+              "type": "PATTERN",
+              "value": "[\\s\\S]*?"
+            },
+            {
+              "type": "STRING",
+              "value": "\"\"\""
+            }
+          ]
         }
       }
     }

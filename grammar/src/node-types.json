@@ -235,6 +235,10 @@
         {
           "type": "data_table",
           "named": true
+        },
+        {
+          "type": "doc_string",
+          "named": true
         }
       ]
     }
@@ -333,6 +337,10 @@
   },
   {
     "type": "description_line",
+    "named": true
+  },
+  {
+    "type": "doc_string",
     "named": true
   },
   {

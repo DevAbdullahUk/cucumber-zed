@@ -57,7 +57,7 @@ module.exports = grammar({
     step: $ => seq(
       field('keyword', $.step_keyword),
       field('text', $.step_text),
-      optional($.data_table)
+      optional(choice($.data_table, $.doc_string))
     ),
 
     step_keyword: $ => choice(
@@ -82,5 +82,7 @@ module.exports = grammar({
     table_row: $ => seq('|', repeat1(seq($.table_cell, '|'))),
 
     table_cell: $ => token(prec(-1, /[^|\n]*/)),
+
+    doc_string: $ => token(prec(2, seq('"""', /[\s\S]*?/, '"""'))),
   }
 });
