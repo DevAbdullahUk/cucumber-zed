@@ -1,3 +1,6 @@
+# Local design docs, not tracked/pushed
+docs/
+
 # Node (tree-sitter CLI, grammar tooling)
 node_modules/
 npm-debug.log*
@@ -15,6 +18,7 @@ target/
 .DS_Store
 
 # Editor
+docs/**
 .vscode/
 .idea/
 *.swp
