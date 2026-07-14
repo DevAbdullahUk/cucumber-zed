@@ -10,10 +10,5 @@ languages = ["languages/gherkin"]
 [lib]
 
 [grammars.gherkin]
-# TODO: this is a placeholder. Zed clones grammars by git `repository` + `rev`
-# directly — it cannot reference the grammar/ subfolder of this repo. Once
-# grammar/ has been pushed out as its own repo (see README.md), replace both
-# fields below with the real repository URL and the commit SHA to pin. Until
-# then this extension will fail to build/install in Zed.
 repository = "https://github.com/DevAbdullahUk/tree-sitter-gherkin"
-rev = "TODO-fill-in-after-grammar-repo-is-pushed"
+rev = "eb21fabad913c722f0964f45a52955f8fda9c12c"

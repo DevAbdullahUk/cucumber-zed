@@ -5,13 +5,12 @@ highlighting, an outline view, and code snippets for `.feature` files.
 
 ## Status
 
-⚠️ **Not yet installable in Zed.** The tree-sitter grammar lives in this repo under
-`grammar/` for local development, but Zed extensions load grammars from a git
-`repository` + `rev` that Zed clones directly — it can't point at a subfolder of this
-repo. `extension.toml` currently has a placeholder grammar `repository`/`rev`. Once
-`grammar/` is pushed out as its own repo (see [Splitting the grammar
-repo](#splitting-the-grammar-into-its-own-repo) below), update those two fields and
-this extension becomes installable as a Zed dev extension.
+The tree-sitter grammar has been split into its own repo,
+[tree-sitter-gherkin](https://github.com/DevAbdullahUk/tree-sitter-gherkin), which
+`extension.toml`'s `[grammars.gherkin]` points at (pinned to a commit SHA). The
+`grammar/` folder still lives in this repo too, for local iteration and testing — see
+[Development](#development) below. This extension is installable as a Zed dev
+extension; see [Installing](#installing).
 
 ## Features
 
@@ -24,7 +23,7 @@ this extension becomes installable as a Zed dev extension.
 Out of scope for this version: a language server / step-definition navigation, and
 non-English Gherkin keyword dialects.
 
-## Installing (once the grammar repo is split out)
+## Installing
 
 1. Open Zed
 2. Run `zed: install dev extension` from the command palette
@@ -58,14 +57,15 @@ same file, means an ambiguity has crept into the grammar — see the comments on
 prefix breaks LR(1) parsing and produces GLR conflicts that don't always resolve the
 same way twice).
 
-### Splitting the grammar into its own repo
+### Keeping the split grammar repo in sync
 
-Zed clones grammars by git URL, so `grammar/` needs to become its own repository
-before this extension can be installed:
+Zed clones grammars by git URL, so the grammar lives in two places: `grammar/` here
+(for local iteration/testing) and
+[tree-sitter-gherkin](https://github.com/DevAbdullahUk/tree-sitter-gherkin) (what Zed
+actually clones). After changing `grammar/` here:
 
-1. Push the contents of `grammar/` to a new repo (e.g. `tree-sitter-gherkin`)
-2. Update `extension.toml`'s `[grammars.gherkin]` `repository` and `rev` to point at
-   the pushed repo and a real commit SHA
+1. Copy the changes into a checkout of `tree-sitter-gherkin` and push them
+2. Update `extension.toml`'s `[grammars.gherkin]` `rev` to the new commit SHA
 3. Install this repo as a dev extension in Zed and confirm highlighting on a
    `.feature` file
 
