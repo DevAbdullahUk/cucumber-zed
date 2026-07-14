@@ -1,0 +1,4 @@
+name = "Gherkin"
+grammar = "gherkin"
+path_suffixes = ["feature"]
+line_comments = ["# "]
