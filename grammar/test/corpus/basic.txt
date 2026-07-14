@@ -19,9 +19,18 @@ Feature: Guess the word
       (description_line))
     (scenario
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))
 
 ================================================================================
 Tags on feature and scenario
@@ -37,13 +46,19 @@ Feature: Tagged feature
 --------------------------------------------------------------------------------
 
 (source_file
-  (tag_list (tag) (tag))
+  (tag_list
+    (tag)
+    (tag))
   (feature
     name: (name_line)
     (scenario
-      (tag_list (tag))
+      (tag_list
+        (tag))
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))
 
 ================================================================================
 Comments are ignored as extras
@@ -67,7 +82,10 @@ Feature: Has comments
     (scenario
       name: (name_line)
       (comment)
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))
 
 ================================================================================
 Background block
@@ -88,10 +106,16 @@ Feature: With background
     name: (name_line)
     (background
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))
     (scenario
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))
 
 ================================================================================
 Rule block containing scenarios
@@ -121,15 +145,30 @@ Feature: Refunds
       name: (name_line))
     (scenario
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))
     (rule_header
       name: (name_line))
     (scenario
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))
 
 ================================================================================
 Scenario Outline with Examples table
@@ -154,14 +193,38 @@ Feature: Eating
     name: (name_line)
     (scenario
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (parameter)
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (parameter)
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (parameter)
+          (text_fragment)))
       (examples
         (data_table
-          (table_row (table_cell) (table_cell) (table_cell))
-          (table_row (table_cell) (table_cell) (table_cell))
-          (table_row (table_cell) (table_cell) (table_cell)))))))
+          (table_row
+            (table_cell)
+            (table_cell)
+            (table_cell))
+          (table_row
+            (table_cell)
+            (table_cell)
+            (table_cell))
+          (table_row
+            (table_cell)
+            (table_cell)
+            (table_cell)))))))
 
 ================================================================================
 Step with a data table argument
@@ -184,11 +247,18 @@ Feature: Users
       name: (name_line)
       (step
         keyword: (step_keyword)
-        text: (step_text)
+        text: (step_text
+          (text_fragment))
         (data_table
-          (table_row (table_cell) (table_cell))
-          (table_row (table_cell) (table_cell))
-          (table_row (table_cell) (table_cell)))))))
+          (table_row
+            (table_cell)
+            (table_cell))
+          (table_row
+            (table_cell)
+            (table_cell))
+          (table_row
+            (table_cell)
+            (table_cell)))))))
 
 ================================================================================
 Step with a doc string argument
@@ -212,7 +282,8 @@ Feature: Blog posts
       name: (name_line)
       (step
         keyword: (step_keyword)
-        text: (step_text)
+        text: (step_text
+          (text_fragment))
         (doc_string)))))
 
 ================================================================================
@@ -235,9 +306,51 @@ Feature: Placing an order
     name: (name_line)
     (scenario
       name: (name_line)
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))
+
+================================================================================
+Step text with quoted string parameters
+================================================================================
+
+Feature: Test case management
+
+  Scenario: Adding a test case to a plan
+    Given John Smith adds a test case named "Login Flow" to the test plan named "Regression Plan"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (scenario
+      name: (name_line)
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (quoted_string)
+          (text_fragment)
+          (quoted_string))))))

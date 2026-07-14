@@ -9,6 +9,8 @@
 (tag) @tag
 (comment) @comment
 (doc_string) @string
+(quoted_string) @string
+(parameter) @variable.parameter
 
 "|" @punctuation.special
 ":" @punctuation.delimiter

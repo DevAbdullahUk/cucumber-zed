@@ -35,7 +35,7 @@ Feature: Guess the word
 
     @slow
     Scenario: Refunded items are restocked
-      Given a customer buys a shoe
+      Given a customer buys a "Blue Suede" shoe
       When they return the shoe
       Then the shoe should be returned to stock
 

@@ -249,6 +249,29 @@
     "fields": {}
   },
   {
+    "type": "step_text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameter",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "text_fragment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "table_row",
     "named": true,
     "fields": {},
@@ -348,7 +371,11 @@
     "named": true
   },
   {
-    "type": "step_text",
+    "type": "parameter",
+    "named": true
+  },
+  {
+    "type": "quoted_string",
     "named": true
   },
   {
@@ -357,6 +384,10 @@
   },
   {
     "type": "tag",
+    "named": true
+  },
+  {
+    "type": "text_fragment",
     "named": true
   },
   {

@@ -69,7 +69,13 @@ module.exports = grammar({
       token(prec(2, '*')),
     ),
 
-    step_text: $ => token(prec(-1, /[^\n]+/)),
+    step_text: $ => repeat1(choice($.quoted_string, $.parameter, $.text_fragment)),
+
+    quoted_string: $ => token(prec(2, /"[^"\n]*"/)),
+
+    parameter: $ => token(prec(2, /<[^<>\n]*>/)),
+
+    text_fragment: $ => token(prec(-1, /[^"<\n]+/)),
 
     name_line: $ => token(prec(-1, /[^\n]*/)),
 
