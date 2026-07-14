@@ -354,3 +354,31 @@ Feature: Test case management
           (quoted_string)
           (text_fragment)
           (quoted_string))))))
+
+================================================================================
+Feature description with a user-story narrative
+================================================================================
+
+Feature: Updating a Test Plan
+  As a user enrolled in a project
+  I want to update an existing test plan
+  So that I can keep test plans accurate and up to date
+
+  Scenario: Renaming a test plan
+    Given a test plan exists
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (description
+      (narrative_line)
+      (narrative_line)
+      (narrative_line))
+    (scenario
+      name: (name_line)
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment))))))

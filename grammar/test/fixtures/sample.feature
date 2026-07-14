@@ -1,6 +1,9 @@
 @smoke
 Feature: Guess the word
   The word guess game is a turn-based game for two players.
+  As a player
+  I want to guess the secret word
+  So that I can win the game
 
   Background: Common setup
     Given a logged in user

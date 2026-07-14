@@ -512,8 +512,50 @@
     "description": {
       "type": "REPEAT1",
       "content": {
-        "type": "SYMBOL",
-        "name": "description_line"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "narrative_line"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "description_line"
+          }
+        ]
+      }
+    },
+    "narrative_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "As a"
+                },
+                {
+                  "type": "STRING",
+                  "value": "I want"
+                },
+                {
+                  "type": "STRING",
+                  "value": "So that"
+                }
+              ]
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^\\n]*"
+            }
+          ]
+        }
       }
     },
     "description_line": {

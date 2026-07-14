@@ -79,7 +79,15 @@ module.exports = grammar({
 
     name_line: $ => token(prec(-1, /[^\n]*/)),
 
-    description: $ => repeat1($.description_line),
+    description: $ => repeat1(choice($.narrative_line, $.description_line)),
+
+    // "As a/I want/So that" is the conventional Gherkin user-story preamble.
+    // Higher precedence than description_line so these specific lines win
+    // when they match, even though both tokens would otherwise match the
+    // same span (tree-sitter resolves same-position ambiguity by
+    // precedence first, then length — same scheme used everywhere else in
+    // this grammar).
+    narrative_line: $ => token(prec(-1, seq(choice('As a', 'I want', 'So that'), /[^\n]*/))),
 
     description_line: $ => token(prec(-2, /[^\n@#|"][^\n]*/)),
 

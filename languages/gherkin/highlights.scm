@@ -11,6 +11,7 @@
 (doc_string) @string
 (quoted_string) @string
 (parameter) @variable.parameter
+(narrative_line) @comment
 
 "|" @punctuation.special
 ":" @punctuation.delimiter
