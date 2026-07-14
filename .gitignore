@@ -1,6 +1,9 @@
 # Local design docs, not tracked/pushed
 docs/
 
+# subagent-driven-development scratch state
+.superpowers/
+
 # Node (tree-sitter CLI, grammar tooling)
 node_modules/
 npm-debug.log*
