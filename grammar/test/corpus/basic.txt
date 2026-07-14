@@ -129,7 +129,7 @@ Feature: Refunds
     (scenario
       name: (name_line)
       (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text))))))
+      (step keyword: (step_keyword) text: (step_text)))
 
 ================================================================================
 Scenario Outline with Examples table
