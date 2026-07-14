@@ -1,0 +1,21 @@
+# Node (tree-sitter CLI, grammar tooling)
+node_modules/
+npm-debug.log*
+
+# tree-sitter build artifacts (parser.c is committed; these aren't)
+grammar/build/
+grammar/*.wasm
+grammar/target/
+
+# Zed extension build output
+extension.wasm
+target/
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.claude/*
