@@ -40,14 +40,24 @@ module.exports = grammar({
 
     scenario: $ => seq(
       optional($.tag_list),
-      token(prec(2, 'Scenario')),
+      choice(token(prec(2, 'Scenario')), token(prec(2, 'Scenario Outline'))),
       ':', field('name', $.name_line),
-      repeat($.step)
+      repeat($.step),
+      optional($.examples)
+    ),
+
+    // No leading tag_list here: allowing tags on Examples too would make
+    // tag_list ambiguous between "belongs to this Examples" and "belongs
+    // to the next scenario/rule". Untagged Examples covers v1's scope.
+    examples: $ => seq(
+      token(prec(2, 'Examples')), ':', optional(field('name', $.name_line)),
+      $.data_table
     ),
 
     step: $ => seq(
       field('keyword', $.step_keyword),
-      field('text', $.step_text)
+      field('text', $.step_text),
+      optional($.data_table)
     ),
 
     step_keyword: $ => choice(
@@ -66,5 +76,11 @@ module.exports = grammar({
     description: $ => repeat1($.description_line),
 
     description_line: $ => token(prec(-2, /[^\n@#|"][^\n]*/)),
+
+    data_table: $ => repeat1($.table_row),
+
+    table_row: $ => seq('|', repeat1(seq($.table_cell, '|'))),
+
+    table_cell: $ => token(prec(-1, /[^|\n]*/)),
   }
 });

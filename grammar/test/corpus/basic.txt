@@ -129,4 +129,63 @@ Feature: Refunds
     (scenario
       name: (name_line)
       (step keyword: (step_keyword) text: (step_text))
-      (step keyword: (step_keyword) text: (step_text)))))
+      (step keyword: (step_keyword) text: (step_text))))))
+
+================================================================================
+Scenario Outline with Examples table
+================================================================================
+
+Feature: Eating
+
+  Scenario Outline: Eating cucumbers
+    Given there are <start> cucumbers
+    When I eat <eat> cucumbers
+    Then I should have <left> cucumbers
+
+    Examples:
+      | start | eat | left |
+      |    12 |   5 |    7 |
+      |    20 |   5 |   15 |
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (scenario
+      name: (name_line)
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (step keyword: (step_keyword) text: (step_text))
+      (examples
+        (data_table
+          (table_row (table_cell) (table_cell) (table_cell))
+          (table_row (table_cell) (table_cell) (table_cell))
+          (table_row (table_cell) (table_cell) (table_cell)))))))
+
+================================================================================
+Step with a data table argument
+================================================================================
+
+Feature: Users
+
+  Scenario: Creating users
+    Given the following users exist:
+      | name  | email           |
+      | Alice | alice@test.com  |
+      | Bob   | bob@test.com    |
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (scenario
+      name: (name_line)
+      (step
+        keyword: (step_keyword)
+        text: (step_text)
+        (data_table
+          (table_row (table_cell) (table_cell))
+          (table_row (table_cell) (table_cell))
+          (table_row (table_cell) (table_cell)))))))

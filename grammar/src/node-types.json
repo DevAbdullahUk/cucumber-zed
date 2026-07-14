@@ -26,6 +26,21 @@
     }
   },
   {
+    "type": "data_table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "table_row",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "description",
     "named": true,
     "fields": {},
@@ -35,6 +50,32 @@
       "types": [
         {
           "type": "description_line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "examples",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name_line",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "data_table",
           "named": true
         }
       ]
@@ -128,6 +169,10 @@
       "required": false,
       "types": [
         {
+          "type": "examples",
+          "named": true
+        },
+        {
           "type": "step",
           "named": true
         },
@@ -182,12 +227,37 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "data_table",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "step_keyword",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "table_row",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "table_cell",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "tag_list",
@@ -225,6 +295,10 @@
     "named": false
   },
   {
+    "type": "Examples",
+    "named": false
+  },
+  {
     "type": "Feature",
     "named": false
   },
@@ -238,6 +312,10 @@
   },
   {
     "type": "Scenario",
+    "named": false
+  },
+  {
+    "type": "Scenario Outline",
     "named": false
   },
   {
@@ -266,7 +344,15 @@
     "named": true
   },
   {
+    "type": "table_cell",
+    "named": true
+  },
+  {
     "type": "tag",
     "named": true
+  },
+  {
+    "type": "|",
+    "named": false
   }
 ]
