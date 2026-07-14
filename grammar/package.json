@@ -1,0 +1,12 @@
+{
+  "name": "tree-sitter-gherkin",
+  "version": "0.1.0",
+  "main": "bindings/node",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.26.11"
+  }
+}

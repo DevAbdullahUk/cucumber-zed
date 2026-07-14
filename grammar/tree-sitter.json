@@ -1,0 +1,18 @@
+{
+  "grammars": [
+    {
+      "name": "gherkin",
+      "camelcase": "Gherkin",
+      "scope": "source.gherkin",
+      "path": ".",
+      "file-types": ["feature"]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+      { "name": "Abdullah Janjua" }
+    ]
+  }
+}
