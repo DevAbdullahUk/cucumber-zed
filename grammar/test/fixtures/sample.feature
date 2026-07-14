@@ -10,6 +10,9 @@ Feature: Guess the word
 
   @fast
   Scenario: Maker starts a game
+
+    A Maker can start a new game at any time.
+
     Given the Maker has started a game
     And the board is empty
     When the Maker starts a game

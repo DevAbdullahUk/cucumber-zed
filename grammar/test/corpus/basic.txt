@@ -382,3 +382,48 @@ Feature: Updating a Test Plan
         keyword: (step_keyword)
         text: (step_text
           (text_fragment))))))
+
+================================================================================
+Scenario with description text before its steps
+================================================================================
+
+Feature: Test execution
+
+  Scenario: AC.1 - An enrolled user cancels a running test execution
+
+    A user enrolled in the project can cancel a test execution while it is
+    still running.
+
+    Given the test execution for the test plan named "Regression Plan" has the status "Running"
+    When John Smith cancels the test execution for the test plan named "Regression Plan"
+    Then the test execution status should be "Cancelled" on the test executions page for the test plan named "Regression Plan"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    name: (name_line)
+    (scenario
+      name: (name_line)
+      (description
+        (description_line)
+        (description_line))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (quoted_string)
+          (text_fragment)
+          (quoted_string)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (quoted_string)))
+      (step
+        keyword: (step_keyword)
+        text: (step_text
+          (text_fragment)
+          (quoted_string)
+          (text_fragment)
+          (quoted_string))))))

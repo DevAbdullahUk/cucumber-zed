@@ -19,6 +19,10 @@
       "required": false,
       "types": [
         {
+          "type": "description",
+          "named": true
+        },
+        {
           "type": "step",
           "named": true
         }
@@ -172,6 +176,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "description",
+          "named": true
+        },
         {
           "type": "examples",
           "named": true

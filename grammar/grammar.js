@@ -35,13 +35,23 @@ module.exports = grammar({
 
     background: $ => seq(
       token(prec(2, 'Background')), ':', optional(field('name', $.name_line)),
+      optional($.description),
       repeat($.step)
     ),
 
+    // optional(description) here reuses the same free-text-between-header-
+    // and-content shape as feature/rule_header. No new ambiguity: step
+    // keywords (Given/When/...) are prec(2), strictly above description's
+    // prec(-1)/prec(-2) fallbacks, so the lexer always prefers "this line
+    // starts a step" over "this line is more description" the moment a
+    // step keyword appears — unlike the Rule-nesting bug, there's no
+    // shared low-precedence prefix for two repeat-continuing alternatives
+    // to fight over here.
     scenario: $ => seq(
       optional($.tag_list),
       choice(token(prec(2, 'Scenario')), token(prec(2, 'Scenario Outline'))),
       ':', field('name', $.name_line),
+      optional($.description),
       repeat($.step),
       optional($.examples)
     ),
